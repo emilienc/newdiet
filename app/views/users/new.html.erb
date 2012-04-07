@@ -1,0 +1,23 @@
+
+<%= simple_form_for @user , :html => { :class => 'form-vertical' }  do |f| %>
+
+<pre class='prettyprint linenums lang-rb'>
+Le but de l'enregistrement est de pouvoir protéger l'accès à vos informations.nous n'utiliserons pas votre email pour vous envoyer de la pub.
+</pre>
+
+
+<% if f.error_notification %>
+    <div class="alert alert-error fade in">
+      <a class="close" data-dismiss="alert" href="#">&times;</a>
+      <%= f.error_notification %>
+    </div>
+  <% end %>
+
+  <%= f.input :email%>
+  <%= f.input :password,:label =>'mot de passe'%>
+  <%= f.input :password_confirmation, :label =>"confirmation du mot de passe"%>
+  <div class="form-actions">
+    <%= f.button :submit,'Enregistrer', :class => 'btn-primary' %>
+    <%= submit_tag 'Annuler', :type => :reset, :class => "btn btn-danger" %>
+  </div>
+<% end %>
