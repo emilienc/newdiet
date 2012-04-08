@@ -1,4 +1,5 @@
 <% provide(:title, @user.email) %>
+
 <div class="row">
   <aside class="span4">
     <section>
@@ -9,3 +10,4 @@
     </section>
   </aside>
 </div>
+<li><%= link_to "Mettre à jour", edit_user_path(@user) %></li>

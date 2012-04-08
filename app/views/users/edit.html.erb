@@ -1,0 +1,24 @@
+
+<h1>Mettez à jour votre profil</h1>
+
+
+<%= simple_form_for @user , :html => { :class => 'form-vertical' }  do |f| %>
+     
+<% if f.error_notification %>
+    <div class="alert alert-error fade in">
+      <a class="close" data-dismiss="alert" href="#">&times;</a>
+      <%= f.error_notification %>
+    </div>
+  <% end %> 
+
+     <%= f.input :email%>
+	  <%= f.input :password,:label =>'mot de passe'%>
+	  <%= f.input :password_confirmation, :label =>"confirmation du mot de passe"%>
+	  <div class="form-actions">
+	    <%= f.button :submit,'Enregistrer', :class => 'btn-primary' %>
+	    <%= submit_tag 'Annuler', :type => :reset, :class => "btn btn-danger" %>
+	  </div>
+<%end%>
+    <%= gravatar_for @user %>
+    <a href="http://gravatar.com/emails">change</a>
+  
