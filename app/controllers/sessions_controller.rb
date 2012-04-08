@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  def new
+    def new
     end
 
     def create
@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
           session[:user_id] = user.id
           redirect_to root_url, :notice => "Bienvenue!"
         else
-          flash.now.alert = "email out mot de passe non valide"
+          flash.now.alert = "email ou mot de passe non valide"
           render "new"
         end
     end

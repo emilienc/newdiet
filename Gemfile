@@ -10,8 +10,17 @@ gem 'bcrypt-ruby'
 
 gem 'sqlite3'
 
-group :development, :test do
+group :development do
   gem 'sqlite3'
+  
+end
+
+group :test do
+  gem 'sqlite3'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'cucumber-rails'
+  gem 'database_cleaner'
 end
 
 

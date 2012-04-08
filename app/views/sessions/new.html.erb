@@ -1,17 +1,25 @@
 <h1>Connexion</h1>
 
-<h1>Log in</h1>
 
-<%= form_tag sessions_path  do  %>
+	<%= form_for(:session,:html => { :class => 'form-vertical' }, :url => sessions_path) do |f| %>
+	
 
+	<pre class='prettyprint linenums lang-rb'>
+	Entre votre email et votre mot de passe pour accéder à votre compte.
+	</pre>
+	
+  
+    <%= f.label :email %>
+    <%= f.text_field :email %>
 
-  <div class="field">
-    <%= label_tag :email %>
-    <%= text_field_tag :email, params[:email] %>
-  </div>
-  <div class="field">
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-  </div>
-  <div class="actions"><%= submit_tag "Log in" %></div>
-<% end %>
+	<%= f.label :password %>
+    <%= f.password_field :password %>
+ 
+    <div class="form-actions">
+	<%= f.submit "Connexion", :class => "btn-primary" %>
+	</div>
+  
+  
+    <% end %>
+
+<p>Nouvel utilisateur? <%= link_to "Créer votre compte!", signup_path %></p>
