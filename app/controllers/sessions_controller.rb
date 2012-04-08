@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  include SessionsHelper
+  
     def new
     end
 
@@ -6,7 +8,7 @@ class SessionsController < ApplicationController
       user = User.find_by_email(params[:session][:email])
         if user && user.authenticate(params[:session][:password])
           session[:user_id] = user.id
-          redirect_to user, :notice => "Bienvenue!"
+          redirect_back_or user
         else
           flash.now[:error] = "email ou mot de passe non valide"
           render "new"
