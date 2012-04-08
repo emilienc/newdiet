@@ -1,0 +1,26 @@
+<h1>Activites de <%=current_user.email%></h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Type</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @activites.each do |activite| %>
+      <tr>
+        <td><%= activite.id %></td>
+        <td><%= link_to activite.genre, activite_path(activite) %></td>
+        <td><%= activite.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_activite_path(activite), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', activite_path(activite), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_activite_path, :class => 'btn btn-primary' %>

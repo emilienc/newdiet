@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  type: 
+  duree: 2012-04-08 17:46:11
+  calories: 1
+  date: 
+
+two:
+  type: 
+  duree: 2012-04-08 17:46:11
+  calories: 1
+  date: 

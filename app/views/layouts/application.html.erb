@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <%= javascript_include_tag :defaults %>
     <title>Newdiet</title>
     <%= csrf_meta_tags %>
 
@@ -35,9 +36,9 @@
             <ul class="nav">
                 <li><%= link_to "Accueil", root_path %></li>
 			 	<% if signed_in? %>
-			        <li><%= link_to "Suivi du Poids", '#' %></li>
+			        <li><%= link_to "Suivi du Poids", pesees_path %></li>
 					<li><%= link_to "Suivi des Repas", '#' %></li>
-					<li><%= link_to "Suivi des Activités", '#' %></li>
+					<li><%= link_to "Suivi des Activités", activites_path %></li>
 					<li><%= link_to "Utilisateurs", users_path %></li>
 					<li><%= link_to "Profile", current_user %></li>
 					<li><%= link_to "Quitter", signout_path, :method => :delete %></li>

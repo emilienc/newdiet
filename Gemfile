@@ -6,6 +6,7 @@ gem 'simple_form'
 gem 'bcrypt-ruby'
 gem "will_paginate"
 gem "bootstrap-will_paginate"
+gem "jquery-rails"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

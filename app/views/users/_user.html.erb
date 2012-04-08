@@ -1,7 +1,10 @@
-<li>
+<div class ='row'>
   <%= gravatar_for user %>
   <%= link_to user.email, user %>
-<% if current_user.admin? && !current_user?(user) %>
+  <% if current_user.admin? && !current_user?(user) %>
     | <%= link_to "Supprimer", user, method: :delete, confirm: "Etes vous sur?" %>
   <% end %>
-</li>
+  </br>
+  pesees (<%=user.pesees.count%>)
+  activites (<%=user.activites.count%>)
+</div><br/>

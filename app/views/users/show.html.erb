@@ -8,6 +8,29 @@
         <%= @user.email %>
       </h1>
     </section>
+	<section>
+	      <%= render 'shared/stats' %>
+	    </section>
   </aside>
+
+<div class="span8">
+    <%= render 'follow_form' if signed_in? %>
+	
+	    <% if @user.pesees.any? %>
+	      <h3>Pesees (<%= @user.pesees.count %>)</h3>
+	      <ol class="pesees">
+	        <%= render @user.pesees %>
+	      </ol>
+	      
+	    <% end %>
+	  	<% if @user.activites.any? %>
+	      <h3>Activites (<%= @user.activites.count %>)</h3>
+	      <ol class="pesees">
+	        <%= render @user.activites %>
+	      </ol>
+	      
+	    <% end %>
+	
+</div>
 </div>
 <li><%= link_to "Mettre à jour", edit_user_path(@user) %></li>

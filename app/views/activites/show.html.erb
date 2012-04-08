@@ -1,0 +1,27 @@
+<h1>/Activite</h1>
+
+<p>
+  <b>Type</b><br>
+  <%= @activite.genre %>
+</p>
+
+<p>
+  <b>Duree</b><br>
+  <%= @activite.duree %>
+</p>
+
+<p>
+  <b>Calories</b><br>
+  <%= @activite.calories %>
+</p>
+
+<p>
+  <b>Date</b><br>
+  <%= @activite.date %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', activites_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_activite_path(@activite), :class => 'btn' %>
+  <%= link_to 'Delete', activite_path(@activite), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>
