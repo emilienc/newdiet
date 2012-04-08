@@ -1,0 +1,23 @@
+<h1>Listing activite_genres</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @activite_genres.each do |activite_genre| %>
+  <tr>
+    <td><%= activite_genre.name %></td>
+    <td><%= link_to 'Show', activite_genre %></td>
+    <td><%= link_to 'Edit', edit_activite_genre_path(activite_genre) %></td>
+    <td><%= link_to 'Destroy', activite_genre, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Activite genre', new_activite_genre_path %>

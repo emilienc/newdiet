@@ -1,38 +1,24 @@
-<%= form_for @activite, :html => { :class => 'form-horizontal' } do |f| %>
-  <fieldset>
-    <legend><%= controller.action_name.capitalize %> /Activite</legend>
+<%= simple_form_for @activite, :html => { :class => 'form-horizontal' } do |f| %>
 
-    <div class="control-group">
-      <%= f.label :genre, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :genre, :class => 'text_field' %>
-      </div>
-    </div>
+	<% if f.error_notification %>
+    	<div class="alert alert-error fade in">
+      		<a class="close" data-dismiss="alert" href="#">&times;</a>
+      		<%= f.error_notification %>
+    	</div>
+  	<% end %>
 
-    <div class="control-group">
-      <%= f.label :duree, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.number_field :duree, :class => 'number_field' %>
-      </div>
-    </div>
+	
+	<%= f.association :activite_genre %>
+	
 
-    <div class="control-group">
-      <%= f.label :calories, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.number_field :calories, :class => 'number_field' %>
-      </div>
-    </div>
+  	<%= f.input :duree%>
+	<%= f.input :calories%>
+	<%= f.input :date%>
 
-    <div class="control-group">
-      <%= f.label :date, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.date_select :date, :class => 'date_select' %>
-      </div>
-    </div>
 
-    <div class="form-actions">
-      <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to 'Cancel', activites_path, :class => 'btn' %>
-    </div>
-  </fieldset>
+   	<div class="form-actions">
+	    <%= f.button :submit,'Enregistrer', :class => 'btn-primary' %>
+	    <%= submit_tag 'Annuler', :type => :reset, :class => "btn btn-danger" %>
+	</div>
+	
 <% end %>

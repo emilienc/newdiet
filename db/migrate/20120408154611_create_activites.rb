@@ -1,7 +1,7 @@
 class CreateActivites < ActiveRecord::Migration
   def change
     create_table :activites do |t|
-      t.string :genre
+      t.integer :activite_genre_id
       t.integer :duree
       t.integer :calories
       t.integer :user_id

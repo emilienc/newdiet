@@ -2,7 +2,7 @@
 
 <p>
   <b>Type</b><br>
-  <%= @activite.genre %>
+  <%= @activite.activite_genre.name unless @activite.activite_genre.nil?%>
 </p>
 
 <p>

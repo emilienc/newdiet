@@ -11,16 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120408154611) do
+ActiveRecord::Schema.define(:version => 20120408161530) do
+
+  create_table "activite_genres", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "activites", :force => true do |t|
-    t.string   "genre"
+    t.integer  "activite_genre_id"
     t.integer  "duree"
     t.integer  "calories"
     t.integer  "user_id"
     t.date     "date"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "pesees", :force => true do |t|

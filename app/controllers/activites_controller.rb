@@ -40,8 +40,15 @@ class ActivitesController < ApplicationController
   # POST /activites
   # POST /activites.json
   def create
-    @activite = Activite.new(params[:activite])
+    #@activite = Activite.new(params[:activite])
+    @activite = Activite.new
     @activite.user_id = current_user
+    @activite.calories = params[:activite][:calories]
+    @activite.date = params[:activite][:date]
+    @activite.duree = params[:activite][:duree]
+    @activite.calories = params[:activite][:calories]
+    @activite.activite_genre_id = params[:activite][:activite_genre_id]
+    
     respond_to do |format|
       if @activite.save
         format.html { redirect_to @activite, notice: 'Activite was successfully created.' }

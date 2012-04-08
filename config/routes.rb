@@ -1,5 +1,7 @@
 Newdiet::Application.routes.draw do
   
+  resources :activite_genres
+
   resources :activites
 
   resources :pesees

@@ -6,3 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
   User.create(email: 'emilien',password: 'admin', password_confirmation: 'admin',admin: 'true')
+  ActiviteGenre.create(name: 'velo')
+  ActiviteGenre.create(name: 'marche')
+  ActiviteGenre.create(name: 'course')

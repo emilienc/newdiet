@@ -3,7 +3,7 @@
   <thead>
     <tr>
       <th>ID</th>
-      <th>Type</th>
+      <th>Genre</th>
       <th>Created at</th>
       <th>Actions</th>
     </tr>
@@ -12,7 +12,7 @@
     <% @activites.each do |activite| %>
       <tr>
         <td><%= activite.id %></td>
-        <td><%= link_to activite.genre, activite_path(activite) %></td>
+        <td><%= activite.activite_genre.name unless activite.activite_genre.nil?%></td>
         <td><%= activite.created_at %></td>
         <td>
           <%= link_to 'Edit', edit_activite_path(activite), :class => 'btn btn-mini' %>
