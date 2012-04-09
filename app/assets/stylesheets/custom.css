@@ -47,6 +47,18 @@ aside {
   }
 }
 
+.size32 {
+    border-radius: 4px 4px 4px 4px;
+    height: 32px;
+    width: 32px;
+}
+
+.avatar {
+    border-radius: 5px 5px 5px 5px;
+    height: 48px;
+    width: 48px;
+}
+
 .gravatar {
   float: left;
   margin-right: 10px;

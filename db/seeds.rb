@@ -9,3 +9,4 @@
   ActiviteGenre.create(name: 'velo')
   ActiviteGenre.create(name: 'marche')
   ActiviteGenre.create(name: 'course')
+  ActiviteGenre.create(name: 'fitness')

@@ -1,18 +1,67 @@
 <% provide(:title, @user.email) %>
 
+
+<div class="span2">
+<table class="table table-bordered table-condensed">
+	<thead>
+	    <tr>
+	      <th>
+			
+				<span class="avatar size32"><%= gravatar_for @user %></span>
+				<h12>View my profile page</h12>
+				<span><%= link_to("Modifier",edit_user_path(@user)) %></span>
+			
+	
+		  </th>		  
+	    </tr>
+	  </thead>
+	<tbody>
+			<tr>
+				<td>
+					
+					  <a href="<%= following_user_path(@user) %>">
+					    <strong id="following" class="stat">
+					      <%= @user.followed_users.count %>
+					    </strong>
+					    following
+					  </a>
+				
+				</td>
+				<td>
+					<a href="<%= followers_user_path(@user) %>">
+					    <strong id="followers" class="stat">
+					      <%= @user.followers.count %>
+					    </strong>
+					    followers
+					  </a>
+				</td>
+			</tr>
+	
+	</tbody>
+</table>
+</div>
+	
+<strong id="followers" class="stat">
+  <%= @user.followers.count %>
+</strong>
+
+<div class="span2">
 <div class="row">
   <aside class="span4">
     <section>
       <h1>
         <%= gravatar_for @user %>
-        <%= @user.email %>
       </h1>
+	<%=@user.email%>
+	 <% if current_user?(@user) %>
+	<%= link_to("Modifier",edit_user_path(@user), :class => 'btn btn-primary') %>		
+	<%end%>
     </section>
 	<section>
 	      <%= render 'shared/stats' %>
 	    </section>
   </aside>
-
+</div>
 <div class="span8">
     <%= render 'follow_form' if signed_in? %>
 	
@@ -32,5 +81,3 @@
 	    <% end %>
 	
 </div>
-</div>
-<li><%= link_to "Mettre à jour", edit_user_path(@user) %></li>
