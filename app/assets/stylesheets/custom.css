@@ -54,6 +54,7 @@ aside {
 }
 
 .avatar {
+	 padding: 0 10px;
     border-radius: 5px 5px 5px 5px;
     height: 48px;
     width: 48px;
@@ -109,3 +110,35 @@ aside {
     margin: 1px 1px;
   }
 }
+
+
+.small {
+    font-size: 11px;
+}
+
+.border {
+    border:1px dotted black;
+}
+
+
+.mini-profile {
+	border:1px solid black;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #F9F9F9;
+    line-height: 16px;
+    padding: 12px;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+
+.fullname {
+    color: #333333;
+    font-weight: bold;
+}
+
+
+
+
+
+
+

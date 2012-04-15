@@ -41,7 +41,7 @@ class PeseesController < ApplicationController
   # POST /pesees.json
   def create
     @pesee = Pesee.new(params[:pesee])
-    @pesee.user_id = current_user
+    @pesee.user_id = current_user.id
     respond_to do |format|
       if @pesee.save
         format.html { redirect_to @pesee, notice: 'Pesee was successfully created.' }

@@ -3,4 +3,11 @@ class Pesee < ActiveRecord::Base
   validates :user_id,presence: true
   belongs_to :user
   default_scope order: 'pesees.created_at DESC'
+  
+  
+  def self.on(date)
+      where("date(date) = ?",date)
+  end
+  
+  
 end

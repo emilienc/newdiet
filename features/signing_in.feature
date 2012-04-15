@@ -19,7 +19,7 @@ Feature: Signing in
   Scenario: Successful signup
 	    Given a user visits the signup page
 	    And the user submits valid signup information
-	    Then  he should see a welcome message for signup
+	    Then  he should see a signout link
 		
 		
 	

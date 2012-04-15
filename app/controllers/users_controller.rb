@@ -54,7 +54,8 @@ class UsersController < ApplicationController
       @user = User.new(params[:user])
       @user.admin = false
       if @user.save
-        redirect_to root_url, :notice => "Bienvenue!"
+        session[:user_id] = @user.id
+        redirect_back_or @user
       else
         render "new"
       end

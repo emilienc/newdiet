@@ -1,83 +1,63 @@
-<% provide(:title, @user.email) %>
 
 
-<div class="span2">
-<table class="table table-bordered table-condensed">
-	<thead>
-	    <tr>
-	      <th>
-			
-				<span class="avatar size32"><%= gravatar_for @user %></span>
-				<h12>View my profile page</h12>
-				<span><%= link_to("Modifier",edit_user_path(@user)) %></span>
-			
-	
-		  </th>		  
-	    </tr>
-	  </thead>
-	<tbody>
-			<tr>
-				<td>
-					
-					  <a href="<%= following_user_path(@user) %>">
-					    <strong id="following" class="stat">
-					      <%= @user.followed_users.count %>
-					    </strong>
-					    following
-					  </a>
+<script type="text/javascript" charset="utf-8">
+  $(function () {
+  new Highcharts.Chart({
+    chart: { renderTo: 'pesees_chart' },
+    title: { text: 'Evolution du poids' },
+    xAxis: { categories: <%= raw @user.pesees.map { |p| p.date.to_s } %>  },
+    yAxis: {
+      title: { text: 'kg'}
+    },
+    series: [{
+	      name: "poids",
+		  data: <%= @user.pesees.map { |p| p.poids.to_f } %>
+		 }]
+	     
+  });
+});
+</script>
+
+
+ <div class="row"><br>
+		<div class="span4">
+			<div class="mini-profile">
+			 <div class="row"><br>
+					<div class="span2 avatar size32"><%= gravatar_for @user %></div>
+					<div class="span2">
+					 <span class="fullname"><%= current_user.email%><br></span>
 				
-				</td>
-				<td>
+					<a href="<%= following_user_path(@user) %>">
+				    <strong id="following" class="stat">
+				      <%= @user.followed_users.count %>
+				    </strong>
+				    <span class="small">following</span>
+				  	</a>
 					<a href="<%= followers_user_path(@user) %>">
 					    <strong id="followers" class="stat">
 					      <%= @user.followers.count %>
 					    </strong>
-					    followers
-					  </a>
-				</td>
-			</tr>
-	
-	</tbody>
-</table>
-</div>
-	
-<strong id="followers" class="stat">
-  <%= @user.followers.count %>
-</strong>
+					    <span class="small">followers</span>
+					</a>
+					<br>
+					<%= link_to("Modifier",edit_user_path(@user)) %>
+				</div>
+				</div>
+			</div>
+		</div>
+		<div class="span2"><br></div>
+		<div class="span6"><%= render 'follow_form' if signed_in? %>
+			
+			<div id="pesees_chart"" style="width: 500px; height: 300px;">
+				
+			</div>
 
-<div class="span2">
-<div class="row">
-  <aside class="span4">
-    <section>
-      <h1>
-        <%= gravatar_for @user %>
-      </h1>
-	<%=@user.email%>
-	 <% if current_user?(@user) %>
-	<%= link_to("Modifier",edit_user_path(@user), :class => 'btn btn-primary') %>		
-	<%end%>
-    </section>
-	<section>
-	      <%= render 'shared/stats' %>
-	    </section>
-  </aside>
+		  
+		</div>
+	</div>
 </div>
-<div class="span8">
-    <%= render 'follow_form' if signed_in? %>
+
+
+
+ 
 	
-	    <% if @user.pesees.any? %>
-	      <h3>Pesees (<%= @user.pesees.count %>)</h3>
-	      <ol class="pesees">
-	        <%= render @user.pesees %>
-	      </ol>
-	      
-	    <% end %>
-	  	<% if @user.activites.any? %>
-	      <h3>Activites (<%= @user.activites.count %>)</h3>
-	      <ol class="pesees">
-	        <%= render @user.activites %>
-	      </ol>
-	      
-	    <% end %>
-	
-</div>
