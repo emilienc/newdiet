@@ -1,8 +1,13 @@
 class PeseesController < ApplicationController
+  
+  
+  
+  
   # GET /pesees
   # GET /pesees.json
   def index
-    @pesees = current_user.pesees
+    @pesees = Pesee.all
+    
 
     respond_to do |format|
       format.html # index.html.erb

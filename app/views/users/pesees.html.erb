@@ -1,0 +1,22 @@
+<h1>Pesees de <%=current_user.email%></h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Poids</th>
+      <th>Date</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pesees.each do |pesee| %>
+      <tr>
+        <td><%= link_to pesee.poids, pesee_path(pesee) %></td>
+        <td><%= pesee.date %></td>
+        <td>
+          <%= link_to 'Modifier', edit_pesee_path(pesee), :class => 'btn btn-mini' %>
+          <%= link_to 'Supprimer', pesee_path(pesee), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

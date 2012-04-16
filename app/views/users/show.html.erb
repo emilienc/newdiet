@@ -25,7 +25,7 @@
 			 <div class="row"><br>
 					<div class="span2 avatar size32"><%= gravatar_for @user %></div>
 					<div class="span2">
-					 <span class="fullname"><%= current_user.email%><br></span>
+					 <span class="fullname"><%= @user.email%><br></span>
 				
 					<a href="<%= following_user_path(@user) %>">
 				    <strong id="following" class="stat">
@@ -46,8 +46,12 @@
 			</div>
 		</div>
 		<div class="span2"><br></div>
-		<div class="span6"><%= render 'follow_form' if signed_in? %>
+		<div class="span6">
 			
+			<%= render 'follow_form' if signed_in? %>
+			<%if current_user?(@user)%>
+				<%= button_to("Liste des pesées",pesees_user_path(@user),:class => "btn btn-large btn-primary") %>
+			<%end%>
 			<div id="pesees_chart"" style="width: 500px; height: 300px;">
 				
 			</div>

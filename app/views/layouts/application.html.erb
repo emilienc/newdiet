@@ -40,11 +40,16 @@
             <ul class="nav">
                 <li><%= link_to "Accueil", root_path %></li>
 			 	<% if signed_in? %>
-			        <li><%= link_to "Suivi du Poids", pesees_path %></li>
+					<li><%= link_to "Dashboard", current_user %></li>
 					<li><%= link_to "Suivi des Repas", '#' %></li>
 					<li><%= link_to "Suivi des Activités", activites_path %></li>
 					<li><%= link_to "Utilisateurs", users_path %></li>
-					<li><%= link_to "Profile", current_user %></li>
+					<% if current_user.profil.nil? %>
+					<li><%= link_to "Profil", new_profil_path %></li>
+					<%else%>
+					<li><%= link_to "Profil", current_user.profil %></li>
+					<%end%>
+				
 					<li><%= link_to "Quitter", signout_path, :method => :delete %></li>
    				<% else %>
 					<li><%= link_to "Connexion", signin_path %></li>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  taille: 9.99
+  birthday: 2012-04-16
+  sexe: MyString
+
+two:
+  taille: 9.99
+  birthday: 2012-04-16
+  sexe: MyString

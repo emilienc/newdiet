@@ -1,0 +1,26 @@
+<h1>Profils</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Taille</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @profils.each do |profil| %>
+      <tr>
+        <td><%= profil.id %></td>
+        <td><%= link_to profil.taille, profil_path(profil) %></td>
+        <td><%= profil.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_profil_path(profil), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', profil_path(profil), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_profil_path, :class => 'btn btn-primary' %>

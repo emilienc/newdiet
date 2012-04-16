@@ -1,0 +1,41 @@
+
+<div class="row"><br>
+		<div class="span4">
+			<div class="mini-profile">
+			 <div class="row"><br>
+					<div class="span2 avatar size32"><%= gravatar_for @profil.user %></div>
+					<div class="span2">
+					 <span class="fullname"><%= @profil.user.email%><br></span>
+				
+					<a href="<%= following_user_path(@user) %>">
+				    <strong id="following" class="stat">
+				      <%= @profil.user.followed_users.count %>
+				    </strong>
+				    <span class="small">following</span>
+				  	</a>
+					<a href="<%= followers_user_path(@user) %>">
+					    <strong id="followers" class="stat">
+					      <%= @profil.user.followers.count %>
+					    </strong>
+					    <span class="small">followers</span>
+					</a>
+					<br>
+					<%= link_to("Modifier",edit_user_path(@profil.user)) %>
+				</div>
+				</div>
+			</div>
+		</div>
+		<div class="span2"><br></div>
+		<div class="span6">
+			
+			<%= render :partial => 'form' %>
+				
+		</div>
+
+		  
+		</div>
+	</div>
+</div>
+
+
+

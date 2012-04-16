@@ -1,8 +1,14 @@
 class UsersController < ApplicationController
   include SessionsHelper
-  before_filter :signed_in_user, only: [:index, :edit, :update, :destroy, :following, :followers]
+  before_filter :signed_in_user, only: [:index, :edit, :update, :destroy, :following, :followers,:pesees]
   before_filter :correct_user,   only: [:edit, :update]
   before_filter :admin_user, only: :destroy
+  
+  def pesees
+    @title = "Pesees"
+    @user = User.find(params[:id])
+    @pesees = @user.pesees.paginate(page: params[:page])
+  end
   
   def following
       @title = "Following"
