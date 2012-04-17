@@ -1,0 +1,27 @@
+<table class="table table-striped"> 
+<thead>
+    <tr>
+      <th>ID</th>
+      <th>Genre</th>
+      <th>Date</th>
+	  <th>Calories</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @activites.each do |activite| %>
+      <tr>
+        <td><%= activite.id %></td>
+        <td><%= activite.activite_genre.name unless activite.activite_genre.nil?%></td>
+		<td><%= activite.date %></td>
+        <td><%= activite.calories %></td>
+        <td>
+          <%= link_to 'Edit', edit_activite_path(activite), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', activite_path(activite), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_activite_path, :class => 'btn btn-primary' %>

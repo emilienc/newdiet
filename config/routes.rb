@@ -8,7 +8,7 @@ Newdiet::Application.routes.draw do
 
   resources :users do
     member do
-      post :pesees
+      post :pesees,:activites
     end
   end
 

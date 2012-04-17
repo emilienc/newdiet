@@ -42,7 +42,6 @@
 			 	<% if signed_in? %>
 					<li><%= link_to "Dashboard", current_user %></li>
 					<li><%= link_to "Suivi des Repas", '#' %></li>
-					<li><%= link_to "Suivi des Activités", activites_path %></li>
 					<li><%= link_to "Utilisateurs", users_path %></li>
 					<% if current_user.profil.nil? %>
 					<li><%= link_to "Profil", new_profil_path %></li>

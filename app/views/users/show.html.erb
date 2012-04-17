@@ -18,6 +18,28 @@
 });
 </script>
 
+<script type="text/javascript" charset="utf-8">
+  $(function () {
+  new Highcharts.Chart({
+    chart: { renderTo: 'activites_chart',type: 'column' },
+    title: { text: 'Suivi des activités' },
+    xAxis: { categories: <%= raw @user.activites.map { |p| p.date.to_s } %>  },
+    yAxis: {
+      title: { text: 'calories'}
+    },
+    series: [{
+	      name: "activites",
+		  data: <%= @user.activites.map { |p| p.calories } %>
+		 }]
+	     
+  });
+});
+</script>
+
+
+
+
+
 
  <div class="row"><br>
 		<div class="span4">
@@ -52,7 +74,15 @@
 			<%if current_user?(@user)%>
 				<%= button_to("Liste des pesées",pesees_user_path(@user),:class => "btn btn-large btn-primary") %>
 			<%end%>
-			<div id="pesees_chart"" style="width: 500px; height: 300px;">
+			<div id="pesees_chart" style="width: 500px; height: 300px;">
+					
+			</div>
+			
+				<%if current_user?(@user)%>
+					<%= button_to("Liste des activités",activites_user_path(@user),:class => "btn btn-large btn-primary") %>
+				<%end%>
+			
+			<div id="activites_chart" style="width: 500px; height: 300px;">
 				
 			</div>
 

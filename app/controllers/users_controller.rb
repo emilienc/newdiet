@@ -10,6 +10,13 @@ class UsersController < ApplicationController
     @pesees = @user.pesees.paginate(page: params[:page])
   end
   
+  def activites
+    @title = "Activites"
+    @user = User.find(params[:id])
+    @activites = @user.activites.paginate(page: params[:page])
+  end
+  
+  
   def following
       @title = "Following"
       @user = User.find(params[:id])
