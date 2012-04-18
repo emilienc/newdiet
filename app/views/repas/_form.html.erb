@@ -1,0 +1,16 @@
+<%= simple_nested_form_for @repa, :html => { :class => 'form-horizontal' } do |f| %>
+    
+	<%=f.input :name, :collection => ["petit dejeuner", "dejeuner","diner","gouter","collation"]%>
+
+    <%=f.input :date%>
+
+
+	<%=f.simple_fields_for :aliments do |builder| %>
+		<%=builder.input :name%>
+	 	<%=builder.input :calories%>	
+	<%end%>
+	<%= f.link_to_add "Ajouter un aliment", :aliments %>
+
+    <%=f.submit%>
+    
+<% end %>

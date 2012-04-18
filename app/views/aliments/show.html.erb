@@ -1,0 +1,22 @@
+<h1>/Aliment</h1>
+
+<p>
+  <b>Name</b><br>
+  <%= @aliment.name %>
+</p>
+
+<p>
+  <b>Repa</b><br>
+  <%= @aliment.repa_id %>
+</p>
+
+<p>
+  <b>Calories</b><br>
+  <%= @aliment.calories %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', aliments_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_aliment_path(@aliment), :class => 'btn' %>
+  <%= link_to 'Delete', aliment_path(@aliment), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

@@ -85,6 +85,14 @@
 			<div id="activites_chart" style="width: 500px; height: 300px;">
 				
 			</div>
+			
+					<%if current_user?(@user)%>
+						<%= button_to("Liste des repas",repas_user_path(@user),:class => "btn btn-large btn-primary") %>
+					<%end%>
+
+				<div id="repas_chart" style="width: 500px; height: 300px;">
+
+				</div>
 
 		  
 		</div>

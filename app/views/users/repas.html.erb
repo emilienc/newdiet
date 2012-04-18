@@ -1,0 +1,26 @@
+<h1>Listing repas</h1>
+
+<table>
+  <tr>
+    <th>type</th>
+    <th>date</th>
+    <th>aliments</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @repas.each do |repa| %>
+  <tr>
+    <td><%= repa.name %></td>
+    <td><%= repa.date %></td>
+    <td><%= link_to 'voir les aliments',aliments_repa_path(repa) %></td>
+    <td><%= link_to 'Show', repa %></td>
+    <td><%= link_to 'Edit', edit_repa_path(repa) %></td>
+    <td><%= link_to 'Destroy', repa, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Repa', new_repa_path %>

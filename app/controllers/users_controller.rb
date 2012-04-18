@@ -4,6 +4,14 @@ class UsersController < ApplicationController
   before_filter :correct_user,   only: [:edit, :update]
   before_filter :admin_user, only: :destroy
   
+  
+  def repas
+   
+    @user = User.find(params[:id])
+    @repas = @user.repas.paginate(page: params[:page])
+  end
+  
+  
   def pesees
     @title = "Pesees"
     @user = User.find(params[:id])

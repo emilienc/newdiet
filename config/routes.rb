@@ -1,5 +1,13 @@
 Newdiet::Application.routes.draw do
   
+  resources :aliments
+
+  resources :repas do
+    member do
+      get :aliments
+    end
+  end
+
   resources :profils
 
   resources :activite_genres
@@ -8,7 +16,7 @@ Newdiet::Application.routes.draw do
 
   resources :users do
     member do
-      post :pesees,:activites
+      post :pesees,:activites,:repas
     end
   end
 

@@ -1,0 +1,26 @@
+<h1>Repas</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @repas.each do |repa| %>
+      <tr>
+        <td><%= repa.id %></td>
+        <td><%= link_to repa.name, repa_path(repa) %></td>
+        <td><%= repa.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_repa_path(repa), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', repa_path(repa), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_repa_path, :class => 'btn btn-primary' %>

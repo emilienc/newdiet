@@ -11,7 +11,8 @@ class User < ActiveRecord::Base
   has_many :followers, through: :reverse_relationships, source: :follower
   has_many :pesees, dependent: :destroy
   has_many :activites, dependent: :destroy
-  has_one :profil
+  has_one :profil, dependent: :destroy
+  has_many :repas, dependent: :destroy
   
   def feed
   end

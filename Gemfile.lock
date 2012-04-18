@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/ryanb/nested_form.git
+  revision: 63dcbcc6c6dbe07b3761ae8cc0cd04cc2a45024a
+  specs:
+    nested_form (0.2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -186,6 +192,7 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner
   jquery-rails
+  nested_form!
   pg
   rails (= 3.2.3)
   rspec-rails
